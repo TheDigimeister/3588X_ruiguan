@@ -13,7 +13,7 @@ void leftMiddleGoal(){
     matchload.set_value(true);
     chassis.turnToHeading(270, 500, {}, false);
     chassis.setPose(positionFromRaycast(front_dist.get() * MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
-    chassis.moveToPoint(-65, 48, 700, {.forwards=true, .maxSpeed=45, .minSpeed=45}, true);
+    chassis.moveToPoint(-65, 48, 700, {.forwards=true, .maxSpeed=80, .minSpeed=45}, true);
     pros::delay(700);
     chassis.turnToHeading(270, 500, {}, false);
     chassis.setPose(positionFromRaycast(front_dist.get() * MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
