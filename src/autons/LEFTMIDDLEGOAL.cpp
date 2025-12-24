@@ -6,10 +6,10 @@ void leftMiddleGoal(){
     triple_state = TICKLER;
     intake.move(127);
 
-    chassis.turnToPoint(-22, 22, 1000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
+    // chassis.turnToPoint(-22, 22, 1000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
     chassis.moveToPoint(-28, 22, 2000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
     chassis.turnToPoint(-52, 47, 1000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
-    chassis.moveToPoint(-52, 47, 2000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
+    chassis.moveToPoint(-52, 47, 2000, {.forwards=true, .maxSpeed=127}, true);
     matchload.set_value(true);
     chassis.turnToHeading(270, 500, {}, false);
     chassis.setPose(chassis.getPose().x, positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
@@ -19,13 +19,13 @@ void leftMiddleGoal(){
     chassis.moveToPose(-10, 10, 320, 2000, {.forwards=false, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, false);
     matchload.set_value(false);
     triple_state = MIDDLESCORE;
-    pros::delay(2000);
+    pros::delay(3000);
     triple_state = TICKLER;
     chassis.turnToPoint(-47, 47, 1000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
     chassis.moveToPoint(-47, 47, 2000, {.forwards=true, .maxSpeed=127}, true);
     chassis.turnToHeading(270, 500, {}, false);
     chassis.setPose(chassis.getPose().x, positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
-    chassis.moveToPoint(-24, 47, 2000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, false);
+    chassis.moveToPoint(-24, 47, 2000, {.forwards=false, .maxSpeed=127}, false);
     triple_state = LONGSCORE;
     pros::delay(800);
 
