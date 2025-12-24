@@ -317,6 +317,9 @@ void autonomous() {
 		case 2:
 			left7ball();
 			break;
+		case 3:
+			leftMiddleGoal();
+			break;
 		case 5:
 			right7ball();
 			break;

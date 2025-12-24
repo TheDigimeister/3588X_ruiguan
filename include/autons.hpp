@@ -13,7 +13,7 @@
 
 extern void left9ball();
 extern void left7ball();
-extern void leftmiddlegoal();
+extern void leftMiddleGoal();
 extern void right9ball();
 extern void right7ball();
 extern void skills();
