@@ -9,11 +9,11 @@ void leftMiddleGoal(){
     // chassis.turnToPoint(-22, 22, 1000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
     chassis.moveToPoint(-28, 22, 2000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
     chassis.turnToPoint(-52, 47, 1000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
-    chassis.moveToPoint(-52, 47, 2000, {.forwards=true, .maxSpeed=127}, true);
+    chassis.moveToPoint(-52, 47, 2000, {.forwards=true, .maxSpeed=100}, true);
     matchload.set_value(true);
     chassis.turnToHeading(270, 500, {}, false);
     chassis.setPose(chassis.getPose().x, positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
-    chassis.moveToPoint(-65, 47, 2000, {.forwards=true, .maxSpeed=127}, true);
+    chassis.moveToPoint(-65, 47, 2000, {.forwards=true, .maxSpeed=45, .minSpeed=45}, true);
     pros::delay(1200);
     chassis.turnToPoint(-10, 10, 1000, {.forwards=false, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
     chassis.moveToPose(-10, 10, 320, 2000, {.forwards=false, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, false);
