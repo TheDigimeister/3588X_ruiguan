@@ -8,7 +8,7 @@ void left7ball() {
 
 
     // 9-ball low goal side (37)
-
+    triple_state = TICKLER;
     intake.move(127);
 
     // pick up trio
@@ -30,14 +30,13 @@ void left7ball() {
     pros::delay(850);
    
     // move to goals
-    intake.move(127);
         
     chassis.moveToPoint(-24, 48.5, 2000, {.forwards=false, .maxSpeed=127});
     chassis.waitUntil(5);
     pros::Task align_score2{[=]{
         while(back_dist.get() > 70) { pros::delay(50);}
     }};
-    
+    triple_state = LONGSCORE;
     pros::delay(2800);
 
     // descore

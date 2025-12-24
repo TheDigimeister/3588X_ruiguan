@@ -18,7 +18,7 @@ bool prev_intake_speed_state = false;
 
 int intake_speed = 127;
 
-int selected_auton = 6;
+int selected_auton = 2;
 bool auton_selected = false;
 
 const float RAYCAST_RESET_ANGLE_RANGE = 20.0; // ± degrees from 0°/360° or 90°/270° 
@@ -313,17 +313,9 @@ void competition_initialize() {}
 void autonomous() {
 
 	switch (selected_auton) {
-		case 1:
-			left9ball();
-			break;
+
 		case 2:
 			left7ball();
-			break;
-		case 3:
-			leftmiddlegoal();
-			break;
-		case 4:
-			right9ball();
 			break;
 		case 5:
 			right7ball();
