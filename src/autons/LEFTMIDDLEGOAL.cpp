@@ -23,6 +23,8 @@ void leftMiddleGoal(){
     intake.move(57);
     triple_state = MIDDLESCORE;
     pros::delay(2000);
+    intake.move(-57);
+    pros::delay(100);
     triple_state = TICKLER;
     intake.move(0);
     chassis.turnToPoint(-47, 47, 1000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
