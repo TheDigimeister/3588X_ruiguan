@@ -30,9 +30,18 @@ void leftMiddleGoal(){
     chassis.turnToHeading(270, 1000, {}, false);
     intake.move(127);
     chassis.setPose(positionFromRaycast(front_dist.get() * MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
-    chassis.moveToPoint(-24, 48, 1000, {.forwards=false, .maxSpeed=50}, false);
+    chassis.moveToPoint(-24, 48, 2000, {.forwards=false, .maxSpeed=50}, false);
     triple_state = LONGSCORE;
     pros::delay(800);
+
+    matchload.set_value(false);
+    chassis.moveToPoint(-46, 37.5, 1500, {.minSpeed=5, .earlyExitRange=1.5});
+    // descore.set_value(true);
+    chassis.turnToHeading(90, 700, {.minSpeed=5, .earlyExitRange=1.25});
+    chassis.moveToPoint(-11, 37.5, 2000, {.forwards=true, .minSpeed = 30, .earlyExitRange = 3});
+    chassis.waitUntil(15.2);
+    // descore.set_value(false);
+    chassis.turnToHeading(120, 2000);
 
     intake.move(0);
     
