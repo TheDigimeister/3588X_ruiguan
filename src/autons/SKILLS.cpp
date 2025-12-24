@@ -38,15 +38,15 @@ void skills(){
     left_mg.move(-50);
     right_mg.move(-50);
     pros::delay(200);
-    chassis.turnToHeading(315, 1300, {.direction=lemlib::AngularDirection::CW_CLOCKWISE, .maxSpeed=80, .minSpeed=5, .earlyExitRange=1});
-    chassis.moveToPose(-7, 7, 315, 2000, {.forwards=false, .maxSpeed=80,},false);
-    left_mg.move(-80);
-    right_mg.move(-80);
+    // chassis.turnToHeading(315, 1300, {.direction=lemlib::AngularDirection::CW_CLOCKWISE, .maxSpeed=80, .minSpeed=5, .earlyExitRange=1});
+    chassis.moveToPose(-9, 8, 320, 2000, {.forwards=false, .maxSpeed=80},false);
+    // left_mg.move(-80);
+    // right_mg.move(-80);
     
-    pros::delay(200);
+    // pros::delay(200);
 
-    left_mg.move(0);
-    right_mg.move(0);
+    // left_mg.move(0);
+    // right_mg.move(0);
 
     triple_state = 1;
     pros::delay(900);
