@@ -15,8 +15,10 @@ void leftMiddleGoal(){
     chassis.setPose(positionFromRaycast(front_dist.get() * MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
     chassis.moveToPoint(-65, 48, 2000, {.forwards=true, .maxSpeed=45, .minSpeed=45}, true);
     pros::delay(1200);
+    chassis.turnToHeading(270, 500, {}, false);
+    chassis.setPose(positionFromRaycast(front_dist.get() * MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
     chassis.turnToPoint(-10, 10, 1000, {.forwards=false, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
-    chassis.moveToPose(-10, 10, 320, 2000, {.forwards=false, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, false);
+    chassis.moveToPose(-10, 9, 320, 2000, {.forwards=false, .maxSpeed=127}, false);
     matchload.set_value(false);
     triple_state = MIDDLESCORE;
     pros::delay(3000);
