@@ -20,12 +20,15 @@ void leftMiddleGoal(){
     // chassis.turnToPoint(-10, 10, 1000, {.forwards=false, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
     chassis.moveToPose(-9, 8, 320, 2400, {.forwards=false, .maxSpeed=127}, false);
     matchload.set_value(false);
+    intake.move(57);
     triple_state = MIDDLESCORE;
     pros::delay(2000);
     triple_state = TICKLER;
+    intake.move(0);
     chassis.turnToPoint(-47, 47, 1000, {.forwards=true, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
     chassis.moveToPoint(-47, 47, 2000, {.forwards=true, .maxSpeed=127}, true);
     chassis.turnToHeading(270, 1000, {}, false);
+    intake.move(127);
     chassis.setPose(positionFromRaycast(front_dist.get() * MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
     chassis.moveToPoint(-24, 48, 1000, {.forwards=false, .maxSpeed=50}, false);
     triple_state = LONGSCORE;
