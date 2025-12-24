@@ -32,22 +32,22 @@ lemlib::ControllerSettings lateral_controller(10.0, // proportional gain (kP)
                                               67.0, // derivative gain (kD)
                                               2, // anti windup
                                               1, // small error range, in inches
-                                              100, // small error range timeout, in milliseconds
+                                              300, // small error range timeout, in milliseconds
                                               3, // large error range, in inches
                                               500, // large error range timeout, in milliseconds
-                                              100 // maximum acceleration (slew)
+                                              0 // maximum acceleration (slew)
 );
 
 // PERFECT angular PID controller
-lemlib::ControllerSettings angular_controller(1.1375, // proportional gain (kP)
-                                              0.08, // integral gain (kI) // 0.04
-                                              5, // derivative gain (kD)
+lemlib::ControllerSettings angular_controller(3, // proportional gain (kP)
+                                              0.0, // integral gain (kI) // 0.04
+                                              24, // derivative gain (kD)
                                               21, // anti windup
                                               1, // small error range, in degrees
-                                              100, // small error range timeout, in milliseconds
+                                              300, // small error range timeout, in milliseconds
                                               3, // large error range, in degrees
                                               500, // large error range timeout, in milliseconds
-                                              100 // maximum acceleration (slew)
+                                              0 // maximum acceleration (slew)
 );
 
 // // angular PID controller

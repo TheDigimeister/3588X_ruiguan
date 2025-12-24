@@ -144,7 +144,7 @@ void initialize() {
 
 	pros::Task distance_resets([&] {
 
-		while(false) {
+		while(true) {
 
 			float frontReading = front_dist.get() * MM_TO_IN;
 			float leftReading = left_dist.get() * MM_TO_IN;

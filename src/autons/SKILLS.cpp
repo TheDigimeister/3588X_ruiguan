@@ -15,32 +15,50 @@ void skills(){
     intake.move(127);
 
     // pick up trio
-    left_mg.move(60);
-    right_mg.move(60);
-    pros::delay(1500);
-    // 67
-    chassis.turnToHeading(90, 1000, {}, false);
-    chassis.setPose(positionFromRaycast(back_dist.get() * MM_TO_IN, BACK_DIST_OFFSET, WEST), positionFromRaycast(left_dist.get() * MM_TO_IN, LEFT_DIST_OFFSET, NORTH),chassis.getPose().theta);
-    intake.move(0);
-    chassis.moveToPoint(-38, 40, 1000, {.forwards=true, .maxSpeed=80});
-    chassis.turnToHeading(135, 800, {.minSpeed=5, .earlyExitRange=1}, false);
-    // chassis.moveToPoint(-25, 25, 1000, {.forwards=true, .maxSpeed=50});
     left_mg.move(70);
     right_mg.move(70);
+    pros::delay(1800);
+    // 67 derr
+    chassis.turnToHeading(90, 1000, {}, false);
+    chassis.setPose(positionFromRaycast(back_dist.get() * MM_TO_IN, BACK_DIST_OFFSET, WEST), positionFromRaycast(left_dist.get() * MM_TO_IN, LEFT_DIST_OFFSET, NORTH),chassis.getPose().theta);
+    // intake.move(0);
+    chassis.moveToPose(-36, 36, 90, 1000, {.forwards=true, .maxSpeed=100}, false);
+    // chassis.turnToHeading(90, 1000, {}, false);
+    chassis.setPose(positionFromRaycast(back_dist.get() * MM_TO_IN, BACK_DIST_OFFSET, WEST), positionFromRaycast(left_dist.get() * MM_TO_IN, LEFT_DIST_OFFSET, NORTH),chassis.getPose().theta);
+    chassis.turnToHeading(135, 1000, {}, false);
+    chassis.moveToPoint(-25, 25, 1000, {.forwards=true, .maxSpeed=50}, false);
+    // chassis.moveToPoint(-25, 25, 1000, {.forwards=true, .maxSpeed=50});
+    // left_mg.move(70);
+    // right_mg.move(70);
+    // pros::delay(210);
+    // intake.move(127);
+    // pros::delay(110);
+    // left_mg.move(0);
+    // right_mg.move(0);
+    left_mg.move(-50);
+    right_mg.move(-50);
     pros::delay(200);
-    intake.move(127);
-    pros::delay(100);
+    chassis.turnToHeading(315, 1300, {.direction=lemlib::AngularDirection::CW_CLOCKWISE, .maxSpeed=80, .minSpeed=5, .earlyExitRange=1});
+    chassis.moveToPose(-7, 7, 315, 2000, {.forwards=false, .maxSpeed=80,},false);
+    left_mg.move(-80);
+    right_mg.move(-80);
+    
+    pros::delay(200);
+
     left_mg.move(0);
     right_mg.move(0);
-    pros::delay(400);
-    chassis.turnToHeading(315, 1300, {.direction=lemlib::AngularDirection::CW_CLOCKWISE, .maxSpeed=80, .minSpeed=5, .earlyExitRange=1});
-    intake.move(57);
-    chassis.moveToPoint(-11.5, 11.5, 2000, {.forwards=false, .maxSpeed=70});
-    matchload.set_value(true);
+
     triple_state = 1;
+    pros::delay(900);
+    intake.move(57);
     // descore.set_value(false);
-    pros::delay(3670);
-    matchload.set_value(false);
+    pros::delay(300);
+    intake.move(50);
+ 
+    pros::delay(1400);
+
+    intake.move(57);
+    pros::delay(1500);
     triple_state = TICKLER;
     intake.move(127);
     // chassis.moveToPoint(-37, 36, 2000, {.forwards=true, .maxSpeed=80});
@@ -68,11 +86,14 @@ void skills(){
     // pros::delay(500);
 
     chassis.turnToPoint(-46, 46, 500, {.minSpeed=5, .earlyExitRange=1});
+    matchload.set_value(true);
     chassis.moveToPoint(-46, 46, 1800, {.forwards=true, .maxSpeed=100});
+    triple_state = MIDDLESCORE;
     chassis.waitUntil(12);
     descore.set_value(true);
     matchload.set_value(true);
-    chassis.turnToHeading(270, 500, {}, false);
+    chassis.turnToHeading(270, 1000, {}, false);
+    triple_state = TICKLER;
     chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get()*MM_TO_IN, RIGHT_DIST_OFFSET, NORTH), chassis.getPose().theta);
 
     chassis.moveToPoint(-64, 48, 2000, {.forwards=true, .maxSpeed=55, .minSpeed=55});
@@ -83,21 +104,24 @@ void skills(){
     left_mg.move(45);
     right_mg.move(45);
     pros::delay(1000);
+    matchload.set_value(false);
 
     // descore.set_value(false);
 
     chassis.moveToPose(-24, 63, 260, 2000, {.forwards=false, .horizontalDrift=15, .minSpeed=50});
     chassis.moveToPoint(24, 63, 2000, {.forwards=false, .maxSpeed=127, .minSpeed=30, .earlyExitRange=3});
-    matchload.set_value(false);
-    chassis.moveToPoint(36, 48, 1500, {.forwards=false, .maxSpeed=80, .minSpeed=5, .earlyExitRange=1});
+    
+    chassis.moveToPoint(36, 49, 1500, {.forwards=false, .maxSpeed=80, .minSpeed=5, .earlyExitRange=1});
     chassis.turnToHeading(90, 1000, {}, false);
     chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST), positionFromRaycast(left_dist.get()*MM_TO_IN, LEFT_DIST_OFFSET, NORTH), chassis.getPose().theta);
 
-    chassis.moveToPoint(25, 48, 3000, {.forwards=false, .maxSpeed=80}, false);
+    chassis.moveToPoint(25, 49, 3000, {.forwards=false, .maxSpeed=80}, false);
     triple_state = 2;
+    intake.move(127);
     matchload.set_value(true);
     pros::delay(2000);
     triple_state = 3;
+    chassis.turnToHeading(90, 1000, {}, false);
     chassis.moveToPoint(48, 48, 1000, {.minSpeed=45, .earlyExitRange=5});
     chassis.turnToHeading(90, 1000, {}, false);
     chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST), positionFromRaycast(left_dist.get()*MM_TO_IN, LEFT_DIST_OFFSET, NORTH), chassis.getPose().theta);
@@ -109,20 +133,23 @@ void skills(){
     pros::delay(100);
     left_mg.move(45);
     right_mg.move(45);
-    pros::delay(1200);
-
-    chassis.moveToPoint(25, 49, 3000, {.forwards=false, .maxSpeed=80}, false);
-    triple_state = 2;
-    pros::delay(1000);
-    triple_state = 3;
+    pros::delay(2000);
 
     chassis.turnToHeading(90, 1000, {}, false);
 
+    chassis.moveToPoint(25, 49, 3000, {.forwards=false, .maxSpeed=80}, false);
+    triple_state = 2;
+    intake.move(127);
+    pros::delay(2000);
+    triple_state = 3;
+
+    chassis.turnToHeading(90, 1000, {}, false);
     chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST),positionFromRaycast(left_dist.get()*MM_TO_IN, LEFT_DIST_OFFSET, NORTH),chassis.getPose().theta);
 
     matchload.set_value(false);
 
-    chassis.moveToPose(60, 24, 170, 2000, {.horizontalDrift=15, .minSpeed=100}, false);
+    chassis.turnToHeading(120, 1000, {}, false);
+    chassis.moveToPose(60, 16, 170, 2000, {.horizontalDrift=15, .minSpeed=100}, false);
     // chassis.turnToHeading(135, 500,{},false);
 
     left_mg.move(60);
