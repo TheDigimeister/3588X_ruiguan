@@ -395,6 +395,85 @@ void opcontrol() {
 		else {
 			intake.move(0);
 		}
+
+		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+			descore.set_value(false);
+			descore_state = false;
+			prev_descore_state = true;
+			float current_heading = normalizeAngle(chassis.getPose().theta);
+			float error90 = fabs(current_heading - 90);
+			float error270 = fabs(current_heading - 270);
+			if (error270 < error90) {
+    			chassis.turnToHeading(270, 500, {}, false);
+				left_mg.move(50);
+				right_mg.move(50);
+				pros::delay(150);
+				chassis.turnToHeading(340, 500, {.minSpeed=5, .earlyExitRange=1}, false);
+				left_mg.move(-50);
+				right_mg.move(-50);
+				pros::delay(300);
+				chassis.turnToHeading(270, 500, {.maxSpeed=80, .minSpeed=5, .earlyExitRange=1}, false);
+				// left_mg.move(-100);
+				// right_mg.move(-100);
+				// pros::delay(450);
+				// chassis.turnToHeading(270, 500, {}, false);
+			} else {
+				chassis.turnToHeading(90, 500, {}, false);
+				left_mg.move(50);
+				right_mg.move(50);
+				pros::delay(150);
+				chassis.turnToHeading(160, 500, {.minSpeed=5, .earlyExitRange=1}, false);
+				left_mg.move(-50);
+				right_mg.move(-50);
+				pros::delay(300);
+				chassis.turnToHeading(90, 500, {.maxSpeed=80, .minSpeed=5, .earlyExitRange=1}, false);
+				// left_mg.move(-100);
+				// right_mg.move(-100);
+				// pros::delay(450);
+				// chassis.turnToHeading(90, 500, {}, false);
+			} }
+
+		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_X)) {
+			descore.set_value(false);
+			descore_state = false;
+			prev_descore_state = true;
+			float current_heading = normalizeAngle(chassis.getPose().theta);
+			float error90 = fabs(current_heading - 90);
+			float error270 = fabs(current_heading - 270);
+			if (error270 < error90) {
+				chassis.turnToHeading(270, 500, {}, false);
+				left_mg.move(50);
+				right_mg.move(50);
+				pros::delay(150);
+    			chassis.turnToHeading(350, 500, {}, false);
+				left_mg.move(50);
+				right_mg.move(50);
+				pros::delay(300);
+				// chassis.turnToHeading(340, 500, {.minSpeed=5, .earlyExitRange=1}, false);
+				// left_mg.move(50);
+				// right_mg.move(50);
+				// pros::delay(300);
+				chassis.turnToHeading(90, 500, {.direction=lemlib::AngularDirection::CW_CLOCKWISE, .maxSpeed=80}, false);
+				// left_mg.move(-100);
+				// right_mg.move(-100);
+				// pros::delay(450);
+				// chassis.turnToHeading(270, 500, {}, false);
+			} else {
+				chassis.turnToHeading(90, 500, {}, false);
+				left_mg.move(50);
+				right_mg.move(50);
+				pros::delay(150);
+				chassis.turnToHeading(170, 500, {}, false);
+				left_mg.move(50);
+				right_mg.move(50);
+				pros::delay(300);
+				chassis.turnToHeading(270, 500, {.direction=lemlib::AngularDirection::CW_CLOCKWISE, .maxSpeed=80}, false);
+				// left_mg.move(-100);
+				// right_mg.move(-100);
+				// pros::delay(450);
+				// chassis.turnToHeading(90, 500, {}, false);
+			}
+		}
 		
 
 
