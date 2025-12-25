@@ -71,10 +71,16 @@ void skills(){
     intake.move(-50);
     pros::delay(200);
     intake.move(127);
+
     pros::Task align_score1{[=]{
-    while(back_dist.get() > 200) { pros::delay(50);}
-    triple_state = LONGSCORE;
+        int timeout = 0;
+        while(back_dist.get() > 200 && timeout <= 40) { 
+            pros::delay(50);
+            timeout++;
+        }
+        triple_state = LONGSCORE;
     }};
+
     chassis.moveToPoint(23, 48.5, 2300, {.forwards=false, .maxSpeed=80});
     pros::delay(2300);
     intake.move(127);
@@ -96,9 +102,14 @@ void skills(){
     pros::delay(1000);
 
     chassis.turnToHeading(90, 1000, {}, false);
+
     pros::Task align_score2{[=]{
-    while(back_dist.get() > 200) { pros::delay(50);}
-    triple_state = LONGSCORE;
+        int timeout = 0;
+        while(back_dist.get() > 200 && timeout <= 40) { 
+            pros::delay(50);
+            timeout++;
+        }
+        triple_state = LONGSCORE;
     }};
 
     chassis.moveToPoint(23, 49, 2200, {.forwards=false, .maxSpeed=80}, false);
@@ -173,9 +184,14 @@ void skills(){
 
     //SCORE number 3
     pros::Task align_score3{[=]{
-    while(back_dist.get() > 200) { pros::delay(50);}
-    triple_state = LONGSCORE;
+        int timeout = 0;
+        while(back_dist.get() > 200 && timeout <= 40) { 
+            pros::delay(50);
+            timeout++;
+        }
+        triple_state = LONGSCORE;
     }};
+
     chassis.moveToPoint(-24, -49, 2500, {.forwards=false, .maxSpeed=80});
     pros::delay(2500);
     intake.move(127);
@@ -196,9 +212,14 @@ void skills(){
 
     //score number 4
     pros::Task align_score4{[=]{
-    while(back_dist.get() > 200) { pros::delay(50);}
-    triple_state = LONGSCORE;
+        int timeout = 0;
+        while(back_dist.get() > 200 && timeout <= 40) { 
+            pros::delay(50);
+            timeout++;
+        }
+        triple_state = LONGSCORE;
     }};
+
     chassis.moveToPoint(-24, -49, 2200, {.forwards=false, .maxSpeed=80});
     pros::delay(2200);
     intake.move(127);
