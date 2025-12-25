@@ -29,8 +29,8 @@ void right7ball() {
     chassis.setPose(chassis.getPose().x, positionFromRaycast(left_dist.get()*MM_TO_IN, LEFT_DIST_OFFSET, SOUTH), chassis.getPose().theta);
 
     chassis.moveToPoint(-63, -48, 900, {.forwards=true, .maxSpeed=127, .minSpeed = 45, .earlyExitRange=12});
-    chassis.moveToPoint(-65, -48, 700, {.forwards=true, .maxSpeed=80, .minSpeed = 45});
-    pros::delay(600);
+    chassis.moveToPoint(-65, -48, 500, {.forwards=true, .maxSpeed=80, .minSpeed = 45});
+    pros::delay(500);
    
     // move to goals
     
@@ -45,10 +45,10 @@ void right7ball() {
 
     // descore
     matchload.set_value(false);
-    chassis.moveToPoint(-46, -38, 1500, {.minSpeed=5, .earlyExitRange=1.5});
+    chassis.moveToPoint(-46, -38.25, 1500, {.minSpeed=5, .earlyExitRange=1.5});
     // descore.set_value(true);
     chassis.turnToHeading(270, 700, {.minSpeed=5, .earlyExitRange=1.25});
-    chassis.moveToPoint(-13, -38, 2000, {.forwards=false, .maxSpeed=90, .minSpeed = 30, .earlyExitRange = 3});
+    chassis.moveToPoint(-13, -38.25, 2000, {.forwards=false, .maxSpeed=90, .minSpeed = 30, .earlyExitRange = 3});
     chassis.waitUntil(15.2);
     // descore.set_value(false);
 }

@@ -91,6 +91,7 @@ void skills(){
     chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST), positionFromRaycast(left_dist.get()*MM_TO_IN, LEFT_DIST_OFFSET, NORTH), chassis.getPose().theta);
 
     //MATCHLOAD TWO
+    chassis.moveToPoint(63, 48, 450, {.forwards=true, .maxSpeed=127, .minSpeed=50});
     chassis.moveToPoint(63, 48, 2000, {.forwards=true, .maxSpeed=50, .minSpeed=50});
     pros::delay(2000);
     left_mg.move(-50);
@@ -111,8 +112,8 @@ void skills(){
         triple_state = LONGSCORE;
     }};
 
-    chassis.moveToPoint(23, 49, 2200, {.forwards=false, .maxSpeed=80}, false);
-    pros::delay(2200);
+    chassis.moveToPoint(23, 49, 2000, {.forwards=false, .maxSpeed=80}, false);
+    pros::delay(2000);
     intake.move(127);
 
     chassis.turnToHeading(90, 1000, {}, false);
@@ -197,8 +198,8 @@ void skills(){
 
     triple_state = TICKLER;
     //MATCHLOAD FOUR
-    chassis.moveToPoint(-62, -48, 2000, {.forwards=true, .maxSpeed=55});
-    pros::delay(2000);
+    chassis.moveToPoint(-62, -48, 1800, {.forwards=true, .maxSpeed=55});
+    pros::delay(1800);
     left_mg.move(-50);
     right_mg.move(-50);
     pros::delay(100);
@@ -219,8 +220,8 @@ void skills(){
         triple_state = LONGSCORE;
     }};
 
-    chassis.moveToPoint(-24, -49, 2200, {.forwards=false, .maxSpeed=80});
-    pros::delay(2200);
+    chassis.moveToPoint(-24, -49, 2400, {.forwards=false, .maxSpeed=80});
+    pros::delay(2400);
     intake.move(127);
 
     // chassis.turnToHeading(90, 1000, {}, false);
@@ -237,11 +238,11 @@ void skills(){
     // pros::delay(800);
     // triple_state = TICKLER;
 
-    chassis.moveToPose(-38, -0, 0, 1100, {.forwards=true, .horizontalDrift=15, .minSpeed=127}, false);
-    chassis.moveToPose(-38, -0, 0, 1000, {.forwards=true, .horizontalDrift=15, .maxSpeed=60}, false);
+    chassis.moveToPose(-35, -0, 0, 800, {.forwards=true, .horizontalDrift=15, .minSpeed=127}, false);
+    chassis.moveToPose(-35, -0, 0, 700, {.forwards=true, .horizontalDrift=15, .maxSpeed=60}, false);
     chassis.turnToHeading(270, 500, {.minSpeed=5, .earlyExitRange=3}, false);
-    left_mg.move(80);
-    right_mg.move(80);
+    left_mg.move(100);
+    right_mg.move(100);
     pros::delay(1200);
 
     // chassis.turnToHeading(90, 1000, {}, false);

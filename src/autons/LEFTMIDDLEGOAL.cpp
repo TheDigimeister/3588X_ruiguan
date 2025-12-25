@@ -38,10 +38,10 @@ void leftMiddleGoal(){
 
     // descore
     matchload.set_value(false);
-    chassis.moveToPoint(-46, 62, 1500, {.minSpeed=5, .earlyExitRange=1.5});
+    chassis.moveToPoint(-46, 61.75, 1500, {.minSpeed=5, .earlyExitRange=1.5});
     // descore.set_value(true);
     chassis.turnToHeading(270, 700, {.minSpeed=5, .earlyExitRange=1.25});
-    chassis.moveToPoint(-12, 62, 2000, {.forwards=false, .maxSpeed=90, .minSpeed = 30, .earlyExitRange = 3});
+    chassis.moveToPoint(-12, 61.75, 2000, {.forwards=false, .maxSpeed=90, .minSpeed = 30, .earlyExitRange = 3});
     chassis.waitUntil(15.2);
     // descore.set_value(false);
 
