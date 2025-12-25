@@ -121,18 +121,18 @@ void skills(){
 
     matchload.set_value(false);
 
-    chassis.turnToHeading(120, 1000, {}, false);
-    chassis.moveToPose(60, 16, 170, 2000, {.horizontalDrift=15, .minSpeed=100}, false);
+    chassis.turnToHeading(180, 1000, {}, false);
+    // chassis.moveToPose(60, 16, 170, 2000, {.horizontalDrift=15, .minSpeed=100}, false);
 
-    triple_state = TICKLER;
-    left_mg.move(70);
-    right_mg.move(70);
-    pros::delay(1800);
+    // triple_state = TICKLER;
+    // left_mg.move(70);
+    // right_mg.move(70);
+    // pros::delay(1800);
 
-    chassis.turnToHeading(90, 1000, {}, false);
-    chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST),positionFromRaycast(right_dist.get()*MM_TO_IN, RIGHT_DIST_OFFSET, SOUTH),chassis.getPose().theta);
+    // chassis.turnToHeading(90, 1000, {}, false);
+    // chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST),positionFromRaycast(right_dist.get()*MM_TO_IN, RIGHT_DIST_OFFSET, SOUTH),chassis.getPose().theta);
 
-    intake.move(-100);
+    // intake.move(-100);
     chassis.moveToPoint(49, -49, 2000, {.forwards=false, .maxSpeed=55});
 
     chassis.turnToHeading(90, 1000, {.maxSpeed=80}, false);
