@@ -133,7 +133,7 @@ void skills(){
     // chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST),positionFromRaycast(right_dist.get()*MM_TO_IN, RIGHT_DIST_OFFSET, SOUTH),chassis.getPose().theta);
 
     // intake.move(-100);
-    chassis.moveToPoint(49, -49, 2000, {.forwards=false, .maxSpeed=55});
+    chassis.moveToPoint(49, -49, 3000, {.forwards=true, .maxSpeed=127});
 
     chassis.turnToHeading(90, 1000, {.maxSpeed=80}, false);
     chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST),positionFromRaycast(right_dist.get()*MM_TO_IN, RIGHT_DIST_OFFSET, SOUTH),chassis.getPose().theta);
