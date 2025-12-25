@@ -14,32 +14,30 @@ void skills(){
     intake.move(127);
 
     // pick up trio
-    left_mg.move(65);
-    right_mg.move(65);
+    left_mg.move(70);
+    right_mg.move(70);
     pros::delay(1800);
     // 67 derr
-    chassis.turnToHeading(90, 750, {}, false);
+    chassis.turnToHeading(90, 1000, {}, false);
     chassis.setPose(positionFromRaycast(back_dist.get() * MM_TO_IN, BACK_DIST_OFFSET, WEST), positionFromRaycast(left_dist.get() * MM_TO_IN, LEFT_DIST_OFFSET, NORTH),chassis.getPose().theta);
     chassis.moveToPose(-29, 31, 90, 2000, {.forwards=true, .maxSpeed=100}, false);
     chassis.setPose(positionFromRaycast(back_dist.get() * MM_TO_IN, BACK_DIST_OFFSET, WEST), positionFromRaycast(left_dist.get() * MM_TO_IN, LEFT_DIST_OFFSET, NORTH),chassis.getPose().theta);
 
     chassis.turnToHeading(315, 1000, {.direction=lemlib::AngularDirection::CCW_COUNTERCLOCKWISE, .maxSpeed=80, .minSpeed=5, .earlyExitRange=1}, false);
-    //intake.move(0);
-    //intake.move(0);
-    chassis.moveToPose(-9, 8, 320, 2400, {.forwards=false, .maxSpeed=127}, false);
-    matchload.set_value(false);
-    intake.move(57);
-    triple_state = MIDDLESCORE;
-    pros::delay(2000);
-    intake.move(-57);
-    pros::delay(100);
+    
+    chassis.moveToPose(-9, 8, 310, 2000, {.forwards=false, .maxSpeed=70}, false);
+    // matchload.set_value(true);
+    // intake.move(-50);
+    // pros::delay(200);
     //old code
-    // triple_state = MIDDLESCORE;
-    // pros::delay(100);
+    triple_state = MIDDLESCORE;
+    intake.move(57);
+    left_mg.move(-50);
+    right_mg.move(-50);
+    pros::delay(200);
     // intake.move(127);
     // pros::delay(200);
-    // intake.move(57);
-    // pros::delay(3700);
+    pros::delay(3700);
 
     triple_state = TICKLER;
     pros::delay(100);
@@ -47,7 +45,7 @@ void skills(){
 
     chassis.turnToPoint(-46, 46, 500, {.minSpeed=5, .earlyExitRange=1});
     matchload.set_value(true);
-    chassis.moveToPoint(-46, 46, 1800, {.forwards=true, .maxSpeed=900});
+    chassis.moveToPoint(-46, 46, 1300, {.forwards=true, .maxSpeed=900});
     triple_state = MIDDLESCORE;
     chassis.waitUntil(12);
     descore.set_value(true);
@@ -78,8 +76,8 @@ void skills(){
     triple_state = LONGSCORE;
     }};
 
-    chassis.moveToPoint(25, 49, 2500, {.forwards=false, .maxSpeed=80});
-    pros::delay(2500);
+    chassis.moveToPoint(25, 49, 2300, {.forwards=false, .maxSpeed=80});
+    pros::delay(2300);
     intake.move(127);
     matchload.set_value(true);
 
@@ -104,8 +102,8 @@ void skills(){
     triple_state = LONGSCORE;
     }};
 
-    chassis.moveToPoint(25, 49, 2500, {.forwards=false, .maxSpeed=80}, false);
-    pros::delay(2500);
+    chassis.moveToPoint(25, 49, 2000, {.forwards=false, .maxSpeed=80}, false);
+    pros::delay(2000);
     intake.move(127);
 
     chassis.turnToHeading(90, 1000, {}, false);
