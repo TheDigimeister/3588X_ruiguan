@@ -16,7 +16,7 @@ void skills(){
     // pick up trio
     left_mg.move(60);
     right_mg.move(60);
-    pros::delay(1800);
+    pros::delay(1900);
     // 67 derr
     chassis.turnToHeading(90, 1000, {}, false);
     chassis.setPose(positionFromRaycast(back_dist.get() * MM_TO_IN, BACK_DIST_OFFSET, WEST), positionFromRaycast(left_dist.get() * MM_TO_IN, LEFT_DIST_OFFSET, NORTH),chassis.getPose().theta);
@@ -133,7 +133,8 @@ void skills(){
     // chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST),positionFromRaycast(right_dist.get()*MM_TO_IN, RIGHT_DIST_OFFSET, SOUTH),chassis.getPose().theta);
 
     // intake.move(-100);
-    chassis.moveToPoint(49, -49, 1500, {.forwards=true, .maxSpeed=127});
+    chassis.moveToPoint(49, -49, 800, {.forwards=true, .maxSpeed=127, . minSpeed=60});
+    chassis.moveToPoint(49, -49, 1000, {.forwards=true, .maxSpeed=60});
 
     chassis.turnToHeading(90, 1000, {.maxSpeed=80}, false);
     chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST),positionFromRaycast(right_dist.get()*MM_TO_IN, RIGHT_DIST_OFFSET, SOUTH),chassis.getPose().theta);
@@ -147,8 +148,8 @@ void skills(){
     triple_state = TICKLER;
     //Matchload Three
     matchload.set_value(true);
-    chassis.turnToPoint(62, -49, 1500, {.forwards=true, .maxSpeed=127, .minSpeed=50});
-    chassis.moveToPoint(62, -49, 2000, {.forwards=true, .maxSpeed=50, .minSpeed=50});
+    chassis.turnToPoint(62, -49.25, 1500, {.forwards=true, .maxSpeed=127, .minSpeed=50});
+    chassis.moveToPoint(62, -49.25, 2000, {.forwards=true, .maxSpeed=50, .minSpeed=50});
     pros::delay(2000);
     left_mg.move(-50);
     right_mg.move(-50);
@@ -220,8 +221,8 @@ void skills(){
         triple_state = LONGSCORE;
     }};
 
-    chassis.moveToPoint(-24, -49, 2400, {.forwards=false, .maxSpeed=80});
-    pros::delay(2400);
+    chassis.moveToPoint(-24, -49, 2500, {.forwards=false, .maxSpeed=80});
+    pros::delay(2500);
     intake.move(127);
 
     // chassis.turnToHeading(90, 1000, {}, false);
@@ -238,8 +239,8 @@ void skills(){
     // pros::delay(800);
     // triple_state = TICKLER;
 
-    chassis.moveToPose(-35, -0, 0, 800, {.forwards=true, .horizontalDrift=15, .minSpeed=127}, false);
-    chassis.moveToPose(-35, -0, 0, 700, {.forwards=true, .horizontalDrift=15, .maxSpeed=60}, false);
+    chassis.moveToPose(-35, -0, 0, 900, {.forwards=true, .horizontalDrift=15, .minSpeed=127}, false);
+    chassis.moveToPose(-35, -0, 0, 1000, {.forwards=true, .horizontalDrift=15, .maxSpeed=60}, false);
     chassis.turnToHeading(270, 500, {.minSpeed=5, .earlyExitRange=3}, false);
     left_mg.move(100);
     right_mg.move(100);
