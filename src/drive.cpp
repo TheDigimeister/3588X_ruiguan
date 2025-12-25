@@ -3,7 +3,7 @@
 
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 
-pros::MotorGroup right_mg({11, 12, 13});    // Creates a motor group with forwards ports 1 & 3 and reversed port 2
+pros::MotorGroup right_mg({11, 4, 13});    // Creates a motor group with forwards ports 1 & 3 and reversed port 2
 pros::MotorGroup left_mg({-9, -15, -17});  // Creates a motor group with forwards port 5 and reversed ports 4 & 6
 
 lemlib::Drivetrain drivetrain(&left_mg, // left motor group

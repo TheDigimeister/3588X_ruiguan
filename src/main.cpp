@@ -18,7 +18,7 @@ bool prev_intake_speed_state = false;
 
 int intake_speed = 127;
 
-int selected_auton = 2;
+int selected_auton = 6;
 bool auton_selected = false;
 
 const float RAYCAST_RESET_ANGLE_RANGE = 20.0; // ± degrees from 0°/360° or 90°/270° 
@@ -360,6 +360,7 @@ void opcontrol() {
 		matchload_pressed = master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT);
 		intake_speed_pressed = master.get_digital(pros::E_CONTROLLER_DIGITAL_A);
 
+		
 		// Arcade control scheme
 		int dir = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);    // Gets amount forward/backward from left joystick
 		int turn = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);  // Gets the turn left/right from right joystick
@@ -394,6 +395,7 @@ void opcontrol() {
 		else {
 			intake.move(0);
 		}
+		
 
 
 		// Pneumatics
