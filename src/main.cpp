@@ -379,7 +379,7 @@ void opcontrol() {
 			triple_state = 3;
 		}
 		else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-			intake.move(57);
+			intake.move(50);
 			triple_state = 1;
 		}
 

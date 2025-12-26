@@ -14,9 +14,9 @@ void skills(){
     intake.move(127);
 
     // pick up trio
-    left_mg.move(60);
-    right_mg.move(60);
-    pros::delay(1900);
+    left_mg.move(61);
+    right_mg.move(61);
+    pros::delay(2100);
     // 67 derr
     chassis.turnToHeading(90, 1000, {}, false);
     chassis.setPose(positionFromRaycast(back_dist.get() * MM_TO_IN, BACK_DIST_OFFSET, WEST), positionFromRaycast(left_dist.get() * MM_TO_IN, LEFT_DIST_OFFSET, NORTH),chassis.getPose().theta);
@@ -24,12 +24,17 @@ void skills(){
     chassis.setPose(positionFromRaycast(back_dist.get() * MM_TO_IN, BACK_DIST_OFFSET, WEST), positionFromRaycast(left_dist.get() * MM_TO_IN, LEFT_DIST_OFFSET, NORTH),chassis.getPose().theta);
 
     chassis.turnToHeading(315, 1000, {.direction=lemlib::AngularDirection::CCW_COUNTERCLOCKWISE, .maxSpeed=80, .minSpeed=5, .earlyExitRange=1}, false);
-    chassis.moveToPose(-9, 8, 315, 2000, {.forwards=false, .maxSpeed=70}, false);
+    chassis.moveToPose(-9, 8, 315, 600, {.forwards=false, .maxSpeed=127, .minSpeed=80}, false);
+    chassis.moveToPose(-9, 8, 315, 200, {.forwards=false, .maxSpeed=80, .minSpeed=80}, false);
     intake.move(0);
     pros::delay(100);
     triple_state = MIDDLESCORE;
     intake.move(57);
-    pros::delay(4000);
+    pros::delay(4700);
+    // intake.move(80);
+    // pros::delay(50);
+    // intake.move(50);
+    // pros::delay(150);
 
     triple_state = TICKLER;
     pros::delay(100);
@@ -47,8 +52,8 @@ void skills(){
     chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get()*MM_TO_IN, RIGHT_DIST_OFFSET, NORTH), chassis.getPose().theta);
 
     //MATCHLOAD ONE
-    chassis.moveToPoint(-63, 48.5, 1700, {.forwards=true, .maxSpeed=50, .minSpeed=50});
-    pros::delay(1700);
+    chassis.moveToPoint(-63, 48.5, 1900, {.forwards=true, .maxSpeed=50, .minSpeed=50});
+    pros::delay(1900);
     left_mg.move(-50);
     right_mg.move(-50);
     pros::delay(100);
@@ -100,7 +105,7 @@ void skills(){
     pros::delay(100);
     left_mg.move(45);
     right_mg.move(45);
-    pros::delay(1000);
+    pros::delay(500);
 
     chassis.turnToHeading(90, 1000, {}, false);
 
@@ -114,8 +119,8 @@ void skills(){
         intake.move(127);
     }};
     intake.move(0);
-    chassis.moveToPoint(23, 49, 2100, {.forwards=false, .maxSpeed=80}, false);
-    pros::delay(2100);
+    chassis.moveToPoint(23, 49, 1500, {.forwards=false, .maxSpeed=80}, false);
+    pros::delay(1500);
     intake.move(127);
 
     chassis.turnToHeading(90, 1000, {}, false);
@@ -137,8 +142,8 @@ void skills(){
     // intake.move(-100);
 
     //MOVE TO OTHER SIDE
-    chassis.moveToPoint(49, -49, 1000, {.forwards=true, .maxSpeed=127, . minSpeed=60});
-    chassis.moveToPoint(49, -49, 1000, {.forwards=true, .maxSpeed=60});
+    chassis.moveToPoint(51, -49, 1000, {.forwards=true, .maxSpeed=127, . minSpeed=60});
+    chassis.moveToPoint(51, -49, 1000, {.forwards=true, .maxSpeed=60});
 
     chassis.turnToHeading(90, 1000, {.maxSpeed=80}, false);
     chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST),positionFromRaycast(right_dist.get()*MM_TO_IN, RIGHT_DIST_OFFSET, SOUTH),chassis.getPose().theta);
@@ -152,20 +157,15 @@ void skills(){
     triple_state = TICKLER;
     //Matchload Three
     matchload.set_value(true);
-    chassis.turnToPoint(62, -49.25, 1500, {.forwards=true, .maxSpeed=127, .minSpeed=50});
-    chassis.moveToPoint(62, -49.25, 2000, {.forwards=true, .maxSpeed=50, .minSpeed=50});
-    pros::delay(2000);
+    chassis.turnToPoint(62, -50, 1500, {.forwards=true, .maxSpeed=127, .minSpeed=50});
+    chassis.moveToPoint(62, -50, 1800, {.forwards=true, .maxSpeed=50, .minSpeed=50});
+    pros::delay(1800);
     left_mg.move(-50);
     right_mg.move(-50);
     pros::delay(100);
     left_mg.move(45);
     right_mg.move(45);
-    pros::delay(1000);
-
-    chassis.moveToPoint(48,-48, 1000, {.forwards=false }, true);
-    left_mg.move(50);
-    right_mg.move(50);
-    pros::delay(200);
+    pros::delay(500);
 
     chassis.turnToHeading(90, 1000, {.maxSpeed=80}, false);
     chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST),positionFromRaycast(right_dist.get()*MM_TO_IN, RIGHT_DIST_OFFSET, SOUTH),chassis.getPose().theta);
@@ -205,15 +205,14 @@ void skills(){
     triple_state = TICKLER;
     //MATCHLOAD FOUR
     chassis.turnToPoint(-62, -48, 1500, {.forwards=true, .maxSpeed=127, .minSpeed=50});
-    chassis.moveToPoint(-62, -48, 1800, {.forwards=true, .maxSpeed=50, .minSpeed=50});
-    pros::delay(1800);
+    chassis.moveToPoint(-62, -48, 1600, {.forwards=true, .maxSpeed=50, .minSpeed=50});
+    pros::delay(1600);
     left_mg.move(-50);
     right_mg.move(-50);
     pros::delay(100);
     left_mg.move(45);
     right_mg.move(45);
     pros::delay(1000);
-    matchload.set_value(false);
 
     chassis.turnToPoint(-25, -49, 1000, {.forwards=false});
 
@@ -226,10 +225,11 @@ void skills(){
         }
         triple_state = LONGSCORE;
         intake.move(127);
+        matchload.set_value(false);
+
     }};
-    intake.move(0);
-    chassis.moveToPoint(-24, -49, 3200, {.forwards=false, .maxSpeed=80});
-    pros::delay(3200);
+    chassis.moveToPoint(-24, -49, 2500, {.forwards=false, .maxSpeed=80});
+    pros::delay(2500);
     intake.move(127);
 
     // chassis.turnToHeading(90, 1000, {}, false);
@@ -246,13 +246,21 @@ void skills(){
     // pros::delay(800);
     // triple_state = TICKLER;
 
-    chassis.moveToPose(-33, -0, 0, 900, {.forwards=true, .horizontalDrift=15, .minSpeed=127}, false);
-    chassis.moveToPose(-33, -0, 0, 800, {.forwards=true, .horizontalDrift=15, .maxSpeed=60}, false);
-    chassis.turnToHeading(270, 500, {.minSpeed=5, .earlyExitRange=3}, false);
-    left_mg.move(100);
-    right_mg.move(100);
-    pros::delay(1200);
+    // chassis.moveToPose(-33, -0, 0, 900, {.forwards=true, .horizontalDrift=15, .minSpeed=127}, false);
+    // chassis.moveToPose(-33, -0, 0, 800, {.forwards=true, .horizontalDrift=15, .maxSpeed=60}, false);
+    // chassis.turnToHeading(270, 500, {.minSpeed=5, .earlyExitRange=3}, false);
+    // left_mg.move(70);
+    // right_mg.move(70);
+    // pros::delay(1200);
 
+    chassis.turnToHeading(270, 1000, {}, false);
+    chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, WEST),positionFromRaycast(left_dist.get()*MM_TO_IN, LEFT_DIST_OFFSET, SOUTH),chassis.getPose().theta);
+
+    chassis.turnToHeading(280, 1000, {}, false);
+    chassis.moveToPose(-60, -18, 0, 2000, {.horizontalDrift=15, .minSpeed=100}, false);
+    left_mg.move(70);
+    right_mg.move(70);
+    pros::delay(1150);
     // chassis.turnToHeading(90, 1000, {}, false);
     // chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, EAST),positionFromRaycast(left_dist.get()*MM_TO_IN, LEFT_DIST_OFFSET, NORTH),chassis.getPose().theta);
 
