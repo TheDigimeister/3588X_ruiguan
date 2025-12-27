@@ -205,8 +205,8 @@ void skills(){
     triple_state = TICKLER;
     //MATCHLOAD FOUR
     chassis.turnToPoint(-62, -48, 1500, {.forwards=true, .maxSpeed=127, .minSpeed=50});
-    chassis.moveToPoint(-62, -48, 1600, {.forwards=true, .maxSpeed=50, .minSpeed=50});
-    pros::delay(1600);
+    chassis.moveToPoint(-62, -48, 1800, {.forwards=true, .maxSpeed=50, .minSpeed=50});
+    pros::delay(1800);
     left_mg.move(-50);
     right_mg.move(-50);
     pros::delay(100);
@@ -257,7 +257,7 @@ void skills(){
     chassis.setPose(positionFromRaycast(front_dist.get()*MM_TO_IN, FRONT_DIST_OFFSET, WEST),positionFromRaycast(left_dist.get()*MM_TO_IN, LEFT_DIST_OFFSET, SOUTH),chassis.getPose().theta);
 
     chassis.turnToHeading(280, 1000, {}, false);
-    chassis.moveToPose(-60, -18, 0, 2000, {.horizontalDrift=15, .minSpeed=100}, false);
+    chassis.moveToPose(-60, -18, 350, 2000, {.horizontalDrift=15, .minSpeed=100}, false);
     left_mg.move(70);
     right_mg.move(70);
     pros::delay(1150);
