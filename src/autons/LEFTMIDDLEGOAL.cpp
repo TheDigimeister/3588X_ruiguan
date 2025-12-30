@@ -13,16 +13,16 @@ void leftMiddleGoal(){
     matchload.set_value(true);
     chassis.turnToHeading(270, 500, {}, false);
     chassis.setPose(positionFromRaycast(front_dist.get() * MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
-    chassis.moveToPoint(-65, 48, 700, {.forwards=true, .maxSpeed=80, .minSpeed=45}, true);
+    chassis.moveToPoint(-65, 48, 600, {.forwards=true, .maxSpeed=60, .minSpeed=45}, true);
     pros::delay(700);
     chassis.turnToHeading(270, 500, {}, false);
     chassis.setPose(positionFromRaycast(front_dist.get() * MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
     // chassis.turnToPoint(-10, 10, 1000, {.forwards=false, .maxSpeed=127, .minSpeed=5, .earlyExitRange=5}, true);
-    chassis.moveToPose(-9, 8, 320, 2400, {.forwards=false, .maxSpeed=127}, false);
+    chassis.moveToPose(-9, 8, 320, 2500, {.forwards=false, .maxSpeed=127}, false);
     matchload.set_value(false);
-    intake.move(57);
+    intake.move(100);
     triple_state = MIDDLESCORE;
-    pros::delay(2000);
+    pros::delay(730);
     intake.move(-57);
     pros::delay(100);
     triple_state = TICKLER;
@@ -34,14 +34,14 @@ void leftMiddleGoal(){
     chassis.setPose(positionFromRaycast(front_dist.get() * MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
     chassis.moveToPoint(-24, 48.5, 1000, {.forwards=false, .maxSpeed=50}, false);
     triple_state = LONGSCORE;
-    pros::delay(800);
+    pros::delay(1100);
 
     // descore
     matchload.set_value(false);
-    chassis.moveToPoint(-46, 61.75, 1500, {.minSpeed=5, .earlyExitRange=1.5});
+    chassis.moveToPoint(-46, 61.40, 1500, {.minSpeed=5, .earlyExitRange=1.5});
     // descore.set_value(true);
     chassis.turnToHeading(270, 700, {.minSpeed=5, .earlyExitRange=1.25});
-    chassis.moveToPoint(-12, 61.75, 2000, {.forwards=false, .maxSpeed=90, .minSpeed = 30, .earlyExitRange = 3});
+    chassis.moveToPoint(-12, 61.40, 2000, {.forwards=false, .maxSpeed=90, .minSpeed = 30, .earlyExitRange = 3});
     chassis.waitUntil(15.2);
     // descore.set_value(false);
 

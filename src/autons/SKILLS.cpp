@@ -24,8 +24,7 @@ void skills(){
     chassis.setPose(positionFromRaycast(back_dist.get() * MM_TO_IN, BACK_DIST_OFFSET, WEST), positionFromRaycast(left_dist.get() * MM_TO_IN, LEFT_DIST_OFFSET, NORTH),chassis.getPose().theta);
 
     chassis.turnToHeading(315, 1000, {.direction=lemlib::AngularDirection::CCW_COUNTERCLOCKWISE, .maxSpeed=80, .minSpeed=5, .earlyExitRange=1}, false);
-    chassis.moveToPose(-9, 8, 315, 600, {.forwards=false, .maxSpeed=127, .minSpeed=80}, false);
-    chassis.moveToPose(-9, 8, 315, 200, {.forwards=false, .maxSpeed=80, .minSpeed=80}, false);
+    chassis.moveToPose(-9, 8, 315, 1000, {.forwards=false, .maxSpeed=90, .minSpeed=80}, false);
     intake.move(0);
     pros::delay(100);
     triple_state = MIDDLESCORE;
@@ -40,9 +39,9 @@ void skills(){
     pros::delay(100);
     intake.move(127);
 
-    chassis.moveToPoint(-48, 47, 600, {.forwards=true, .maxSpeed=127});
+    chassis.moveToPoint(-48, 47, 1000, {.forwards=true, .maxSpeed=127});
     matchload.set_value(true);
-    chassis.moveToPoint(-48, 47, 400, {.forwards=true, .maxSpeed=80});
+    chassis.moveToPoint(-48, 47, 600, {.forwards=true, .maxSpeed=80});
     triple_state = MIDDLESCORE;
     chassis.waitUntil(12);
     descore.set_value(true);
@@ -158,8 +157,8 @@ void skills(){
     //Matchload Three
     matchload.set_value(true);
     chassis.turnToPoint(62, -50, 1500, {.forwards=true, .maxSpeed=127, .minSpeed=50});
-    chassis.moveToPoint(62, -50, 1800, {.forwards=true, .maxSpeed=50, .minSpeed=50});
-    pros::delay(1800);
+    chassis.moveToPoint(62, -50, 1900, {.forwards=true, .maxSpeed=50, .minSpeed=50});
+    pros::delay(1900);
     left_mg.move(-50);
     right_mg.move(-50);
     pros::delay(100);

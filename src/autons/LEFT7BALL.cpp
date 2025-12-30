@@ -44,9 +44,9 @@ void left7ball() {
     chassis.turnToHeading(270, 500, {}, false);
     chassis.setPose(positionFromRaycast(front_dist.get() * MM_TO_IN, FRONT_DIST_OFFSET, WEST), positionFromRaycast(right_dist.get() * MM_TO_IN, RIGHT_DIST_OFFSET, NORTH),chassis.getPose().theta);
     chassis.moveToPoint(-65, 48, 700, {.forwards=true, .maxSpeed=80, .minSpeed=45}, true);
-    pros::delay(700);
+    pros::delay(500);
     chassis.turnToHeading(270, 500, {}, false);
-
+    
     pros::Task align_score2{[=]{
         while(back_dist.get() > 200) { pros::delay(50);}
         intake.move(127);
@@ -54,15 +54,15 @@ void left7ball() {
     }};
     intake.move(0);
     chassis.setPose(chassis.getPose().x, positionFromRaycast(right_dist.get()*MM_TO_IN, RIGHT_DIST_OFFSET, NORTH), chassis.getPose().theta);
-    chassis.moveToPose(-24, 48.5, 270, 3100, {.forwards=false, .maxSpeed=127});
-    pros::delay(3100);
+    chassis.moveToPose(-24, 48.5, 270, 3200, {.forwards=false, .maxSpeed=127});
+    pros::delay(3200);
 
     // descore
     matchload.set_value(false);
-    chassis.moveToPoint(-46, 61.50, 1500, {.minSpeed=5, .earlyExitRange=1.5});
+    chassis.moveToPoint(-46, 61.4, 1500, {.minSpeed=5, .earlyExitRange=1.5});
     // descore.set_value(true);
     chassis.turnToHeading(270, 700, {.minSpeed=5, .earlyExitRange=1.25});
-    chassis.moveToPoint(-12, 61.50, 2000, {.forwards=false, .maxSpeed=90, .minSpeed = 30, .earlyExitRange = 3});
+    chassis.moveToPoint(-12, 61.4, 2000, {.forwards=false, .maxSpeed=90, .minSpeed = 30, .earlyExitRange = 3});
     chassis.waitUntil(15.2);
     // descore.set_value(false);
 
