@@ -59,10 +59,10 @@ void left7ball() {
 
     // descore
     matchload.set_value(false);
-    chassis.moveToPoint(-46, 61.4, 1500, {.minSpeed=5, .earlyExitRange=1.5});
+    chassis.moveToPoint(-40, 61, 1500, {.minSpeed=5, .earlyExitRange=1.5});
     // descore.set_value(true);
     chassis.turnToHeading(270, 700, {.minSpeed=5, .earlyExitRange=1.25});
-    chassis.moveToPoint(-12, 61.4, 2000, {.forwards=false, .maxSpeed=90, .minSpeed = 30, .earlyExitRange = 3});
+    chassis.moveToPoint(-9.5, 61, 2000, {.forwards=false, .maxSpeed=127, .minSpeed = 30, .earlyExitRange = 3});
     chassis.waitUntil(15.2);
     // descore.set_value(false);
 
