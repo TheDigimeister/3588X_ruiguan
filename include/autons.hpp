@@ -18,6 +18,6 @@ extern void right9ball();
 extern void right7ball();
 extern void skills();
 extern void pidTune();
-
+extern void soloAWP();
 
 extern const int ALLIANCECOLOR;

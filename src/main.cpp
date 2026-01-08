@@ -18,7 +18,7 @@ bool prev_intake_speed_state = false;
 
 int intake_speed = 127;
 
-int selected_auton = 6;
+int selected_auton = 8;
 bool auton_selected = false;
 
 const float RAYCAST_RESET_ANGLE_RANGE = 20.0; // ± degrees from 0°/360° or 90°/270° 
@@ -36,6 +36,7 @@ const char* auton_names[] = {
     "Right 7 Ball",
     "Skills",
 	"PID Tune",
+	"Solo AWP",
 };
 
 int triple_state = 3;
@@ -53,14 +54,14 @@ void on_center_button() {
 void on_left_button() {
     if (!auton_selected) {
         selected_auton--;
-        if (selected_auton < 1) selected_auton = 7; // Wrap to last auton
+        if (selected_auton < 1) selected_auton = 8; // Wrap to last auton
     }
 }
 
 void on_right_button() {
     if (!auton_selected) {
         selected_auton++;
-        if (selected_auton > 7) selected_auton = 1; // Wrap to first auton
+        if (selected_auton > 8) selected_auton = 1; // Wrap to first auton
     }
 }
 
@@ -328,6 +329,9 @@ void autonomous() {
 			break;
 		case 7:
 			pidTune();
+			break;
+		case 8:
+			soloAWP();
 			break;
 	}
 
